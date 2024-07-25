@@ -21,26 +21,26 @@ const variants = {
 };
 
 const Contact: React.FC = () => {
-  const ref: any = useRef();
-  const formRef: any = useRef<HTMLDivElement>();
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const ref = useRef<any>();
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const isInView = useInView(ref, { margin: "-10px" });
 
-  const sendEmail = (e: any) => {
+  const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus('sending');
 
     emailjs
-      .sendForm("service_dsw6pvg", "template_fld4np4", formRef.current, {
-        publicKey: "ZLLu2j53JMYEpSXb_",
-      })
+      .sendForm("service_dsw6pvg", "template_fld4np4", formRef.current!, "ZLLu2j53JMYEpSXb_")
       .then(
         () => {
           console.log("SUCCESS!");
-          setSuccess(true);
+          setStatus('success');
+          formRef.current?.reset();
         },
         (error) => {
           console.log("FAILED...", error.text);
+          setStatus('error');
         }
       );
   };
@@ -136,14 +136,14 @@ const Contact: React.FC = () => {
             size="lg"
             className="uppercase flex items-center gap-2 cursor-pointer"
           >
-            Let's Connect
+            {status === 'sending' ? 'Sending...' : "Let's Connect"}
           </Button>
-          {error && (
+          {status === 'error' && (
             <p className="text-red-500">
               Failed to send message. Please try again later.
             </p>
           )}
-          {success && (
+          {status === 'success' && (
             <p className="text-green-500">Message sent successfully!</p>
           )}
         </motion.form>
@@ -151,4 +151,5 @@ const Contact: React.FC = () => {
     </motion.div>
   );
 };
+
 export default Contact;
