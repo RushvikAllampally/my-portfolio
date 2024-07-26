@@ -103,10 +103,10 @@ const Work: React.FC = () => {
               </h2>
               <h3 className="h3">{project.title}</h3>
               <p className="text-white/60">{project.description}</p>
-              <ul className="flex gap-4">
+              <ul className="flex gap-4 flex-wrap">
                 {project.stack.map((item: any, index: number) => {
                   return (
-                    <li key={index} className="text-xl text-accent">
+                    <li key={index} className="text-xl text-accent text-wrap	">
                       {item.name}
                       {/* to remove the last comma */}
                       {index !== project.stack.length - 1 && ","}

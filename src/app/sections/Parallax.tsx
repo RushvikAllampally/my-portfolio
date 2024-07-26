@@ -22,7 +22,7 @@ const Parallax: React.FC = () => {
        bg-gradient-to-b from-primary via-gray-900 to-gray-800 z-10"
     >
       <motion.h1
-        className="text-[68px] xl:text-[100px] leading-[1.1] font-bold"
+        className="text-[68px] xl:text-[100px] leading-[1.1] font-bold text-center"
         style={{ y: textBg }}
       >
         What I know
