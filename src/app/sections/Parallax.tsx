@@ -17,9 +17,7 @@ const Parallax: React.FC = () => {
   return (
     <div
       ref={ref}
-      className="h-screen w-full relative flex items-center
-       justify-center overflow-hidden
-       bg-gradient-to-b from-primary via-gray-900 to-gray-800 z-10"
+      className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary via-gray-900 to-gray-800 z-10"
     >
       <motion.h1
         className="text-[68px] xl:text-[100px] leading-[1.1] font-bold text-center"
@@ -27,21 +25,34 @@ const Parallax: React.FC = () => {
       >
         What I know
       </motion.h1>
-      <motion.div
-        className="w-full h-full absolute bg-cover 
-      bg-bottom z-[13] bg-[url('/assets/mountains.png')]"
-      ></motion.div>
-      <motion.div
-        style={{ y: yBg }}
-        className="w-full h-full absolute bg-cover 
-      bg-bottom z-[12] bg-[url('/assets/planets.png')]"
-      ></motion.div>
-      <motion.div
-        style={{ x: yBg }}
-        className="w-full h-full absolute bg-cover 
-      bg-bottom z-[11] bg-[url('/assets/stars.png')]"
-      ></motion.div>
+      <motion.div className="w-full h-full absolute z-[13]">
+        <Image
+          src="/assets/mountains.png"
+          alt="Mountains"
+          layout="fill"
+          objectFit="cover"
+        />
+      </motion.div>
+      <motion.div className="w-full h-full absolute z-[12]" style={{ y: yBg }}>
+        <div className="h-[500px] sm:h-full w-full relative">
+          <Image
+            src="/assets/planets.png"
+            alt="Planets"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      </motion.div>
+      <motion.div className="w-full h-full absolute z-[11]" style={{ x: yBg }}>
+        <Image
+          src="/assets/stars.png"
+          alt="Stars"
+          layout="fill"
+          objectFit="cover"
+        />
+      </motion.div>
     </div>
   );
 };
+
 export default Parallax;
