@@ -91,6 +91,7 @@ const Contact: React.FC = () => {
             className="w-full h-full xl:w-[450px] xl:h-[450px]"
             viewBox="0 0 32.666 32.666"
             preserveAspectRatio="xMidYMid meet"
+            
           >
             <motion.path
               strokeWidth={0.2}

@@ -6,7 +6,6 @@ import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 import Skills from "./sections/Skills";
 import Work from "./sections/Work";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const Home: React.FC = () => {
   return (
