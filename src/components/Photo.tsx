@@ -15,7 +15,7 @@ const Photo: React.FC = () => {
         className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute"
       >
         <Image
-          src="/assets/blackbg-mypic.jpg"
+          src="/assets/itsme.jpg"
           alt="my pic"
           priority
           quality={100}
